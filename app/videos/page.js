@@ -44,6 +44,11 @@ const videos = [
     title: "Beautiful Fountain Short",
     caption: "A quick glimpse of our custom water feature design.",
   },
+  {
+    videoId: "LSWD-PoUGyQ",
+    title: "Custom Luxury Fountain",
+    caption: "A showcase of custom luxury water fountain design.",
+  },
 ];
 
 export default function VideosPage() {
