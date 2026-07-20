@@ -111,10 +111,10 @@ export default function AboutPage() {
             </ScrollReveal>
             <ScrollReveal direction="right" className={styles.storyImageWrap}>
               <Image
-                src="/images/gallery/190696.jpg.jpeg"
-                alt="V Design Fountain installation"
+                src="/images/about/story-waterfall.jpeg"
+                alt="V Design custom waterfall installation"
                 width={560}
-                height={400}
+                height={600}
                 className={styles.storyImage}
                 quality={85}
               />
