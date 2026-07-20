@@ -1,0 +1,246 @@
+/* ==========================================================================
+   About Page Styles
+   ========================================================================== */
+
+/* ===================== STORY ===================== */
+.story {
+  padding-top: var(--space-5xl);
+}
+
+.storyGrid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: var(--space-4xl);
+  align-items: center;
+}
+
+.storyText p {
+  font-size: var(--text-base);
+  line-height: 1.9;
+  color: var(--color-gray-500);
+}
+
+.storyImageWrap {
+  position: relative;
+}
+
+.storyImage {
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-xl);
+  object-fit: cover;
+}
+
+/* ===================== MISSION ===================== */
+.mission {
+  padding-top: var(--space-4xl);
+  padding-bottom: var(--space-4xl);
+}
+
+.missionGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.missionCard {
+  background: var(--color-white);
+  border-radius: var(--border-radius-md);
+  padding: var(--space-2xl);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid transparent;
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.missionCard:hover {
+  box-shadow: var(--shadow-md);
+  border-color: rgba(232, 169, 58, 0.2);
+  transform: translateY(-4px);
+}
+
+.missionIcon {
+  color: var(--color-primary);
+  margin-bottom: var(--space-lg);
+}
+
+.missionCard h3 {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-md);
+  color: var(--color-deep);
+}
+
+.missionCard p {
+  font-size: var(--text-sm);
+  line-height: 1.8;
+  color: var(--color-gray-500);
+  margin: 0;
+}
+
+/* ===================== PROCESS TIMELINE ===================== */
+.process {
+  padding: var(--space-5xl) 0;
+}
+
+.timeline {
+  display: flex;
+  gap: var(--space-xl);
+  position: relative;
+  justify-content: center;
+  padding-top: var(--space-xl);
+}
+
+.timelineStep {
+  text-align: center;
+  max-width: 200px;
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.timelineNumber {
+  font-family: var(--font-heading);
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  color: var(--color-tertiary);
+  margin-bottom: var(--space-sm);
+  line-height: 1;
+}
+
+.timelineIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--color-tertiary);
+  color: var(--color-primary);
+  margin: 0 auto var(--space-md);
+  position: relative;
+  z-index: 1;
+}
+
+.timelineTitle {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-deep);
+  margin-bottom: var(--space-sm);
+}
+
+.timelineDesc {
+  font-size: var(--text-sm);
+  line-height: 1.7;
+  color: var(--color-gray-500);
+  margin: 0;
+}
+
+
+
+/* ===================== TEAM ===================== */
+.team {
+  padding-top: var(--space-4xl);
+  padding-bottom: var(--space-4xl);
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.teamCard {
+  text-align: center;
+  background: var(--color-white);
+  border-radius: var(--border-radius-md);
+  padding: var(--space-2xl);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--duration-normal) var(--ease-out);
+  border: 1px solid transparent;
+}
+
+.teamCard:hover {
+  box-shadow: var(--shadow-md);
+  border-color: rgba(232, 169, 58, 0.15);
+  transform: translateY(-4px);
+}
+
+.teamAvatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-lg);
+}
+
+.teamInitial {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+.teamName {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--color-deep);
+  margin-bottom: var(--space-xs);
+}
+
+.teamRole {
+  font-size: var(--text-sm);
+  color: var(--color-primary);
+  font-weight: 500;
+  display: block;
+  margin-bottom: var(--space-md);
+}
+
+.teamBio {
+  font-size: var(--text-sm);
+  line-height: 1.7;
+  color: var(--color-gray-500);
+  margin: 0;
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 900px) {
+  .storyGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+
+  .timeline {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2xl);
+  }
+
+  .timelineStep {
+    max-width: 320px;
+  }
+
+  .timelineLine {
+    display: none;
+  }
+
+  .teamGrid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 600px) {
+  .missionGrid {
+    grid-template-columns: 1fr;
+  }
+}

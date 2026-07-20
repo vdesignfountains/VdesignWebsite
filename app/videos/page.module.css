@@ -1,0 +1,19 @@
+/* ==========================================================================
+   Videos Page Styles
+   ========================================================================== */
+
+.videosSection {
+  padding-top: var(--space-3xl);
+}
+
+.videoGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl);
+}
+
+@media (max-width: 768px) {
+  .videoGrid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,232 @@
+.footer {
+  position: relative;
+  overflow: hidden;
+}
+
+.waveTop {
+  position: relative;
+  z-index: 1;
+  margin-bottom: -2px;
+}
+
+.waveTop svg {
+  display: block;
+  width: 100%;
+  height: 50px;
+}
+
+.footerInner {
+  background: var(--color-deep);
+  position: relative;
+}
+
+.footerGrid {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr 1fr;
+  gap: var(--space-3xl);
+  padding-top: var(--space-4xl);
+  padding-bottom: var(--space-3xl);
+}
+
+/* --- Columns --- */
+.column {}
+
+.columnTitle {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-white);
+  margin-bottom: var(--space-lg);
+  position: relative;
+  padding-bottom: var(--space-sm);
+}
+
+.columnTitle::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background: var(--color-secondary);
+}
+
+/* --- Footer Logo --- */
+.footerLogo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.footerLogoImage {
+  display: block;
+  object-fit: contain;
+}
+
+.footerLogoTextContainer {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.footerLogoName {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-white);
+  letter-spacing: 0.01em;
+}
+
+.footerLogoTagline {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.footerAbout {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: var(--text-sm);
+  line-height: 1.8;
+  margin-bottom: var(--space-lg);
+}
+
+/* --- Social Icons --- */
+.socialIcons {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.socialIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.6);
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.socialIcon:hover {
+  background: var(--color-secondary);
+  border-color: var(--color-secondary);
+  color: var(--color-deep);
+  transform: translateY(-3px);
+}
+
+/* --- Link List --- */
+.linkList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.linkList a {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: var(--text-sm);
+  text-decoration: none;
+  transition: all var(--duration-fast) var(--ease-out);
+  display: inline-block;
+}
+
+.linkList a:hover {
+  color: var(--color-secondary);
+  transform: translateX(4px);
+}
+
+/* --- Contact List --- */
+.contactList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.contactList li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: var(--text-sm);
+}
+
+.contactList li svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--color-secondary);
+}
+
+.contactList a {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.contactList a:hover {
+  color: var(--color-secondary);
+}
+
+/* --- Bottom Bar --- */
+.bottomBar {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: var(--space-lg) 0;
+}
+
+.bottomInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.copyright {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: var(--text-xs);
+  margin: 0;
+}
+
+.credit {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: var(--text-xs);
+  font-style: italic;
+  margin: 0;
+}
+
+/* --- Decorative Leaf --- */
+.leafAccent {
+  position: absolute;
+  bottom: 60px;
+  right: 40px;
+  pointer-events: none;
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .footerGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+  }
+}
+
+@media (max-width: 600px) {
+  .footerGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+    padding-top: var(--space-3xl);
+    padding-bottom: var(--space-2xl);
+  }
+
+  .bottomInner {
+    flex-direction: column;
+    gap: var(--space-sm);
+    text-align: center;
+  }
+
+  .leafAccent {
+    display: none;
+  }
+}

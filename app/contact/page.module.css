@@ -1,0 +1,220 @@
+/* ==========================================================================
+   Contact Page Styles
+   ========================================================================== */
+
+.contactSection {
+  padding-top: var(--space-3xl);
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1.4fr 0.6fr;
+  gap: var(--space-3xl);
+  align-items: start;
+}
+
+/* ===================== MAIN CONTACT INFO CARD ===================== */
+.infoCardLarge {
+  background: var(--color-white);
+  border-radius: var(--border-radius-md);
+  padding: var(--space-3xl);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-gray-200);
+}
+
+.mainTitle {
+  font-family: var(--font-heading);
+  font-size: var(--text-3xl);
+  margin-bottom: var(--space-sm);
+  color: var(--color-deep);
+}
+
+.mainSubtitle {
+  font-size: var(--text-base);
+  color: var(--color-gray-500);
+  line-height: 1.8;
+  margin-bottom: var(--space-2xl);
+  max-width: 560px;
+}
+
+/* --- Contact Items --- */
+.contactCards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.contactItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-lg);
+  padding: var(--space-lg);
+  border-radius: var(--border-radius-md);
+  background: var(--color-background);
+  border: 1px solid var(--color-gray-200);
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.contactItem:hover {
+  border-color: var(--color-secondary);
+  box-shadow: var(--shadow-sm);
+  transform: translateX(4px);
+}
+
+.contactItemIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-tertiary);
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.contactItemLabel {
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-deep);
+  margin-bottom: 2px;
+}
+
+.contactItemValue {
+  font-size: var(--text-base);
+  color: var(--color-gray-500);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out);
+  line-height: 1.6;
+}
+
+a.contactItemValue:hover {
+  color: var(--color-primary);
+}
+
+/* ===================== SIDEBAR ===================== */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.infoCard {
+  background: var(--color-white);
+  border-radius: var(--border-radius-md);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-gray-200);
+}
+
+.infoTitle {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-deep);
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-sm);
+  border-bottom: 2px solid var(--color-tertiary);
+}
+
+/* --- Social Grid --- */
+.socialGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 0.625rem 0.75rem;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-deep-light);
+  background: var(--color-background);
+  border-radius: var(--border-radius-sm);
+  text-decoration: none;
+  transition: all var(--duration-fast) var(--ease-out);
+  border: 1px solid var(--color-gray-200);
+}
+
+.socialLink:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  background: var(--color-tertiary);
+}
+
+/* --- Brochure Card --- */
+.brochureCard {
+  background: linear-gradient(135deg, var(--color-tertiary), var(--color-background));
+  text-align: center;
+  border-color: var(--color-secondary);
+}
+
+.brochureIcon {
+  color: var(--color-primary);
+  margin-bottom: var(--space-md);
+}
+
+.brochureText {
+  font-size: var(--text-sm);
+  color: var(--color-gray-500);
+  margin-bottom: var(--space-lg);
+}
+
+/* ===================== MAP SECTION ===================== */
+.mapSection {
+  padding: var(--space-4xl) 0 0;
+}
+
+.mapTitle {
+  font-family: var(--font-heading);
+  font-size: var(--text-3xl);
+  text-align: center;
+  margin-bottom: var(--space-sm);
+}
+
+.mapAddress {
+  text-align: center;
+  color: var(--color-gray-500);
+  font-size: var(--text-base);
+  margin-bottom: var(--space-2xl);
+}
+
+.mapContainer {
+  width: 100%;
+  height: 400px;
+  background: var(--color-gray-100);
+  overflow: hidden;
+}
+
+.mapContainer iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 900px) {
+  .contactGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+}
+
+@media (max-width: 600px) {
+  .infoCardLarge {
+    padding: var(--space-xl);
+  }
+
+  .contactItem {
+    padding: var(--space-md);
+  }
+
+  .socialGrid {
+    grid-template-columns: 1fr;
+  }
+}

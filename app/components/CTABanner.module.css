@@ -1,0 +1,43 @@
+.cta {
+  position: relative;
+  padding: var(--space-5xl) 0;
+  background: linear-gradient(135deg, var(--color-deep) 0%, #5C3D2E 40%, var(--color-primary-dark) 100%);
+  overflow: hidden;
+  text-align: center;
+}
+
+.bgPattern {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 20% 50%, rgba(232, 169, 58, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(193, 98, 29, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+}
+
+.title {
+  font-size: var(--text-3xl);
+  color: var(--color-white);
+  margin-bottom: var(--space-lg);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.subtitle {
+  font-size: var(--text-lg);
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 550px;
+  margin: 0 auto var(--space-2xl);
+  line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+  .cta {
+    padding: var(--space-4xl) 0;
+  }
+}
