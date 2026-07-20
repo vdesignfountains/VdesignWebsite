@@ -86,7 +86,7 @@ export default function AboutPage() {
           </nav>
           <h1>Our Story</h1>
           <p className="page-hero__subtitle">
-            Fifteen years of crafting living water — where artistry, nature, and
+            Seven years of crafting living water — where artistry, nature, and
             engineering converge.
           </p>
         </div>

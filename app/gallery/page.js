@@ -161,7 +161,6 @@ export default function GalleryPage() {
                     </div>
                   </button>
                   <div className={styles.cardContent}>
-                    <span className={styles.projectCategory}>{img.category}</span>
                     <h3 className={styles.projectTitle}>{img.title}</h3>
                   </div>
                 </div>
