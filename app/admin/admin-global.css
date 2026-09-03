@@ -1,0 +1,5 @@
+/* Hide public navbar and footer on admin pages */
+#main-nav,
+footer {
+  display: none !important;
+}

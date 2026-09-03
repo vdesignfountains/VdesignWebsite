@@ -196,6 +196,32 @@
   margin: 0;
 }
 
+.adminExploreLink {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-secondary) !important;
+  margin-top: 4px;
+  text-decoration: none;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.adminExploreLink:hover {
+  color: #ffffff !important;
+  transform: translateX(4px) !important;
+}
+
+.adminExploreLink svg {
+  flex-shrink: 0;
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.adminExploreLink:hover svg {
+  transform: scale(1.1);
+}
+
 /* --- Decorative Leaf --- */
 .leafAccent {
   position: absolute;

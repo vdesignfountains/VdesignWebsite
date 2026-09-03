@@ -1,0 +1,147 @@
+.loginPage {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1a1410 0%, #2c1e14 50%, #1a1410 100%);
+  padding: 1.5rem;
+}
+
+.loginCard {
+  width: 100%;
+  max-width: 420px;
+  background: rgba(255, 251, 243, 0.03);
+  border: 1px solid rgba(193, 98, 29, 0.15);
+  border-radius: 16px;
+  padding: 3rem 2.5rem;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4);
+}
+
+.loginHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.loginLogoImg {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 1rem auto;
+}
+
+.loginLogo {
+  font-family: var(--font-heading, "Playfair Display", serif);
+  font-size: 2rem;
+  font-weight: 700;
+  color: #c1621d;
+  margin: 0 0 0.25rem;
+  letter-spacing: 0.02em;
+}
+
+.loginSubtitle {
+  color: rgba(232, 223, 214, 0.5);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin: 0;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: rgba(232, 223, 214, 0.7);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.input {
+  padding: 0.875rem 1rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: #e8dfd6;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+
+.input::placeholder {
+  color: rgba(232, 223, 214, 0.3);
+}
+
+.input:focus {
+  border-color: #c1621d;
+  box-shadow: 0 0 0 3px rgba(193, 98, 29, 0.15);
+}
+
+.errorMsg {
+  background: rgba(220, 38, 38, 0.12);
+  border: 1px solid rgba(220, 38, 38, 0.3);
+  color: #fca5a5;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.submitBtn {
+  margin-top: 0.5rem;
+  padding: 0.9375rem;
+  background: linear-gradient(135deg, #c1621d 0%, #d4882e 100%);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.2s;
+  letter-spacing: 0.02em;
+}
+
+.submitBtn:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+.submitBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.backLink {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 0;
+}
+
+.backLink a {
+  color: rgba(232, 223, 214, 0.4);
+  text-decoration: none;
+  font-size: 0.8125rem;
+  transition: color 0.2s;
+}
+
+.backLink a:hover {
+  color: #c1621d;
+}

@@ -101,18 +101,18 @@ const trustPoints = [
 const testimonials = [
   {
     quote: "V Design transformed our backyard into a tropical paradise. The three-tiered fountain they built is absolutely breathtaking — every guest who visits can't stop admiring it.",
-    name: "Rajesh Sharma",
-    role: "Homeowner, Jaipur",
+    name: "Architect Bhaven Pandya",
+    role: "Mumbai",
   },
   {
     quote: "We hired V Design for our resort's entrance water feature and the result exceeded all expectations. Their craftsmanship and attention to detail is world-class.",
-    name: "Priya Mehta",
-    role: "Resort Manager, Udaipur",
+    name: "Mr. Khamankar UCN",
+    role: "Bungalow, Nagpur",
   },
   {
     quote: "From the initial design consultation to the final installation, the V Design team was professional, creative, and truly passionate about their work. Highly recommend!",
-    name: "Arjun Patel",
-    role: "Architect, Mumbai",
+    name: "Architect Rajesh Kakde",
+    role: "Nagpur",
   },
 ];
 
