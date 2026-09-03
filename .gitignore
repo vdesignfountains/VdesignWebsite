@@ -42,5 +42,3 @@ next-env.d.ts
 
 # User uploads
 /GALLERY/
-/public/uploads/*
-!/public/uploads/.gitkeep
