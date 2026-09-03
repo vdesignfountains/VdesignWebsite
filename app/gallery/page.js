@@ -74,9 +74,10 @@ export default function GalleryPage() {
                         width={600}
                         height={450}
                         className={styles.galleryImage}
-                        quality={85}
-                        loading="lazy"
-                        unoptimized
+                        quality={80}
+                        priority={i < 4}
+                        loading={i < 4 ? undefined : "lazy"}
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       />
                       <div className={styles.zoomIcon} aria-hidden="true">
                         <svg

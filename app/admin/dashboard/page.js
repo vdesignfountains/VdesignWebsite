@@ -132,7 +132,7 @@ function DashboardContent() {
                       width={300}
                       height={200}
                       className={styles.itemImage}
-                      unoptimized
+                      sizes="300px"
                     />
                   </div>
                   <div className={styles.itemInfo}>
