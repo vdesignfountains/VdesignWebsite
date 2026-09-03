@@ -35,18 +35,21 @@ export async function POST(request) {
     }
 
     // Validate file type
-    const validTypes = ["image/jpeg", "image/png", "image/webp", "image/jpg"];
-    if (!validTypes.includes(file.type)) {
+    const ext = (file.name?.split(".").pop() || "").toLowerCase();
+    const isImage =
+      file.type?.startsWith("image/") ||
+      ["jpg", "jpeg", "png", "webp", "heic", "heif", "avif"].includes(ext);
+    if (!isImage) {
       return NextResponse.json(
-        { error: "Only JPEG, PNG, and WebP images are allowed" },
+        { error: "Only image files (JPEG, PNG, WebP) are allowed" },
         { status: 400 }
       );
     }
 
-    // Validate file size (max 10MB)
-    if (file.size > 10 * 1024 * 1024) {
+    // Validate file size (max 15MB)
+    if (file.size > 15 * 1024 * 1024) {
       return NextResponse.json(
-        { error: "Image must be smaller than 10MB" },
+        { error: "Image must be smaller than 15MB" },
         { status: 400 }
       );
     }

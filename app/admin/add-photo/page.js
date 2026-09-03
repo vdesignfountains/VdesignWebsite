@@ -1,9 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
 import { AdminGuard } from "@/app/components/AdminGuard";
 import styles from "./page.module.css";
 
@@ -23,26 +21,31 @@ function AddPhotoContent() {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
   const fileRef = useRef(null);
-  const router = useRouter();
 
   const handleFileChange = (e) => {
     const selected = e.target.files?.[0];
     if (!selected) return;
 
     // Validate type
-    if (!["image/jpeg", "image/png", "image/webp"].includes(selected.type)) {
-      setError("Only JPEG, PNG, and WebP images are allowed.");
+    const ext = selected.name?.toLowerCase().split(".").pop() || "";
+    const isImage =
+      selected.type.startsWith("image/") ||
+      ["jpg", "jpeg", "png", "webp", "heic", "heif", "avif"].includes(ext);
+
+    if (!isImage) {
+      setError("Please select a valid image file (JPEG, PNG, WebP).");
       return;
     }
 
-    // Validate size (10MB)
-    if (selected.size > 10 * 1024 * 1024) {
-      setError("Image must be smaller than 10MB.");
+    // Validate size (15MB)
+    if (selected.size > 15 * 1024 * 1024) {
+      setError("Image must be smaller than 15MB.");
       return;
     }
 
     setFile(selected);
     setError("");
+
     const reader = new FileReader();
     reader.onload = (ev) => setPreview(ev.target.result);
     reader.readAsDataURL(selected);
@@ -59,8 +62,12 @@ function AddPhotoContent() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!file || !clientName.trim()) {
-      setError("Please select an image and enter the client name.");
+    if (!file) {
+      setError("Please select a project photo to upload.");
+      return;
+    }
+    if (!clientName.trim()) {
+      setError("Please enter the client / project name.");
       return;
     }
 
@@ -77,10 +84,11 @@ function AddPhotoContent() {
         body: formData,
       });
 
+      const data = await res.json();
+
       if (res.ok) {
         setSuccess(true);
       } else {
-        const data = await res.json();
         setError(data.error || "Failed to upload photo.");
       }
     } catch {
@@ -101,7 +109,7 @@ function AddPhotoContent() {
               Your photo is now live on the gallery page.
             </p>
             <div className={styles.successActions}>
-              <a href="/gallery" className={styles.viewBtn} target="_blank">
+              <a href="/gallery" className={styles.viewBtn} target="_blank" rel="noopener noreferrer">
                 View Gallery
               </a>
               <button
@@ -110,6 +118,7 @@ function AddPhotoContent() {
                   setFile(null);
                   setPreview(null);
                   setClientName("");
+                  if (fileRef.current) fileRef.current.value = "";
                 }}
                 className={styles.addAnotherBtn}
               >
@@ -143,47 +152,55 @@ function AddPhotoContent() {
 
           {/* Image Upload */}
           <div className={styles.formGroup}>
-            <label className={styles.label}>Project Photo</label>
+            <label className={styles.label} htmlFor="photoFileInput">
+              Project Photo {file && <span className={styles.selectedBadge}>✓ Photo Selected</span>}
+            </label>
             <div
               className={`${styles.dropZone} ${preview ? styles.hasPreview : ""}`}
               onDragOver={(e) => e.preventDefault()}
               onDrop={handleDrop}
-              onClick={() => fileRef.current?.click()}
             >
+              <input
+                id="photoFileInput"
+                ref={fileRef}
+                type="file"
+                accept="image/*"
+                onChange={handleFileChange}
+                className={styles.fileInput}
+              />
               {preview ? (
-                <Image
-                  src={preview}
-                  alt="Preview"
-                  width={400}
-                  height={300}
-                  className={styles.previewImg}
-                  unoptimized
-                />
+                <div className={styles.previewContainer}>
+                  <img
+                    src={preview}
+                    alt="Preview"
+                    className={styles.previewImg}
+                  />
+                  <div className={styles.previewFooter}>
+                    <span className={styles.fileName}>{file?.name}</span>
+                    <span className={styles.changeBadge}>Click to replace</span>
+                  </div>
+                </div>
               ) : (
                 <div className={styles.dropContent}>
                   <span className={styles.dropIcon}>📁</span>
                   <span className={styles.dropText}>
                     Click or drag an image here
                   </span>
+                  <span className={styles.browseButton}>
+                    Choose File from Device
+                  </span>
                   <span className={styles.dropHint}>
-                    JPEG, PNG, or WebP — max 10MB
+                    JPEG, PNG, or WebP — max 15MB
                   </span>
                 </div>
               )}
-              <input
-                ref={fileRef}
-                type="file"
-                accept="image/jpeg,image/png,image/webp"
-                onChange={handleFileChange}
-                className={styles.fileInput}
-              />
             </div>
           </div>
 
           {/* Client Name */}
           <div className={styles.formGroup}>
             <label htmlFor="clientName" className={styles.label}>
-              Client Name
+              Client / Project Name
             </label>
             <input
               id="clientName"
@@ -200,10 +217,15 @@ function AddPhotoContent() {
           <button
             type="submit"
             className={styles.publishBtn}
-            disabled={uploading || !file || !clientName.trim()}
+            disabled={uploading}
           >
             {uploading ? "Publishing..." : "Publish Photo"}
           </button>
+          {(!file || !clientName.trim()) && (
+            <p className={styles.requiredHint}>
+              * Select a photo and enter a project name to publish
+            </p>
+          )}
         </form>
       </div>
     </div>
